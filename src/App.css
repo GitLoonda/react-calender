@@ -4,3 +4,63 @@
   padding: 2rem;
   text-align: center;
 }
+
+.container {
+  width: 400px;
+  height : 450px;
+  margin: auto;
+}
+
+.container h1 {
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+header h2 {
+  margin: 0;
+  font-size: 2em;
+}
+
+header span {
+  margin: auto;
+  font-size: 1.5em;
+}
+
+.calender {
+  background-color: black;
+  color: white;
+  padding: 1rem;
+  margin: 7px auto;
+}
+
+.calender main .date, .day {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.date li, .day li {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 0.5em;
+  border-radius: 10px;
+}
+
+.control button {
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 4.5em;
+  height: 2.5em;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1em;
+}
+
+.control button:hover {
+  transition: 2s;
+  background-color: white;
+  border-color: #aaa;
+}
