@@ -3,6 +3,10 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .container {
@@ -18,7 +22,7 @@
 
 header {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(7, 1fr);
 }
 
 header h2 {
@@ -40,7 +44,7 @@ header span {
 
 .calender main .date, .day {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(7, 1fr);
 }
 
 .date li, .day li {
@@ -49,9 +53,16 @@ header span {
   border-radius: 10px;
 }
 
+.holyday {
+  color: #aaa;
+}
+
+.control {
+  background-color: white;
+}
+
 .control button {
-  margin-top: 10px;
-  margin-left: 10px;
+  margin: 10px;
   width: 4.5em;
   height: 2.5em;
   border: 1px solid #ccc;

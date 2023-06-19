@@ -42,10 +42,10 @@ function App() {
       <div className="container">
         <Header />
         <Calender year={year} month={month} date={date} />
+        <div className="control">
+          <button onClick={prevMonth}>prev</button>
+          <button onClick={nextMonth}>next</button>
       </div>
-      <div className="control">
-        <button onClick={prevMonth}>prev</button>
-        <button onClick={nextMonth}>next</button>
       </div>
     </>
   )
