@@ -1,15 +1,14 @@
-import { useState } from 'react'
+import { useState } from "react";
 
 function Calender({ year, month, date }) {
-  
   let curr = new Date();
   let currYear = curr.getFullYear();
   let currMonth = curr.getMonth();
   //말일 구하기
   let lastDate = new Date(year, month + 1, 0).getDate();
-  //1일 요일 구하기
+  //매월 1일의 요일 구하기
   let firstDate = new Date(year, month, 1).getDay();
-  const day = ['일', '월', '화', '수', '목', '금', '토'];
+  const day = ["일", "월", "화", "수", "목", "금", "토"];
 
   return (
     <div className="calender">
@@ -18,38 +17,47 @@ function Calender({ year, month, date }) {
         <span>{month + 1}월</span>
       </header>
       <main>
-        <ul className='day'>
-          {
-            day.map((day, i) => {
-              return (
-                <li key={i}>{day}</li>
-              )
-            })
-          }
+        <ul className="day">
+          {day.map((day, i) => {
+            return (
+              <li className={i === 0 || i === 6 ? "holyday" : ""} key={i}>
+                {day}
+              </li>
+            );
+          })}
         </ul>
-        <ul className='date'>
-          {
-            Array(firstDate).fill().map((_, i) => {
+        <ul className="date">
+          {Array(firstDate)
+            .fill()
+            .map((_, i) => {
+              return <li key={i}></li>;
+            })}
+          {Array(lastDate)
+            .fill()
+            .map((_, i) => {
               return (
-                <li key={i}></li>
-              )
-            })
-          }
-          {
-            Array(lastDate).fill().map((_, i) => {
-              return (
-                <li 
-                key={i}
-                style={(year == currYear)&&(month == currMonth)&&(date == i+1) ? (
-                  {backgroundColor:"red"}
-                ) : ( null )}>{i + 1}</li>
-              )
-            })
-          }
+                <li
+                  className={
+                    new Date(year, month, i + 1).getDay() === 0 ||
+                    new Date(year, month, i + 1).getDay() === 6
+                      ? "holyday"
+                      : ""
+                  }
+                  key={i}
+                  style={
+                    year == currYear && month == currMonth && date == i + 1
+                      ? { backgroundColor: "red" }
+                      : null
+                  }
+                >
+                  {i + 1}
+                </li>
+              );
+            })}
         </ul>
       </main>
     </div>
-  )
+  );
 }
 
-export default Calender
+export default Calender;
